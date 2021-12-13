@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block header %}
+        <!--头图-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Live Music Is A Lifestyle</div>
+                <div class="masthead-heading text-uppercase">演出资讯</div>
+            </div>
+        </header>
+{% endblock %}
+{% block content %}
+<!-- FILTER -->
+<!-- Control buttons -->
+ <section class="page-section bg-light">
+            <div class="container">
+                <div class="text-start">
+                    <h3 class="section-heading text-uppercase">演出资讯</h3>
+                </div>
+                <!-- 选择城市 -->
+<div class="city-select js-city-select pull-left">
+    <div class="city-select__label">请选择城市</div>
+  <div class="city-select__box">
+    <div class="city-select__current" data-default="全部"></div>
+    <div class="city-select__list">
+      <button class="city-select__close">☓</button>
+      <div class="city-select__wrapper">
+        <a class="city-select__item" href="/shows">全部</a>
+        <a class="city-select__item" href="#">北京</a>
+        <a class="city-select__item" href="#">上海</a>
+        <a class="city-select__item" href="#">深圳</a>
+        <a class="city-select__item" href="#">广州</a>
+        <a class="city-select__item" href="#">成都</a>
+        <a class="city-select__item" href="#">东莞</a>
+        <a class="city-select__item" href="#">南京</a>
+        <a class="city-select__item" href="#">郑州</a>
+        <a class="city-select__item" href="#">厦门</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div id="myBtnContainer">
+                    <button class="btn btn-primary active" onclick="filterSelection('all')">全部</button>
+                    <button class="btn btn-primary" onclick="filterSelection('indie')">独立</button>
+                    <button class="btn btn-primary" onclick="filterSelection('punk')">朋克</button>
+                    <button class="btn btn-primary" onclick="filterSelection('rock')">摇滚</button>
+                    <button class="btn btn-primary" onclick="filterSelection('metal')">金属</button>
+                </div>
+                <div class="city-select__label">💡找不到你要找的演出？分享你看到的演出资讯</div>
+                <a class="btn btn-outline-primary mb-3 btn-sm" href="/postshow">发布演出信息</a>
+     </div>
+<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->                  
+     <div class="container container-filter">
+         {% for show in shows %}
+{% if loop.index == 1 %}{% set counter = ( counter | default(1) ) %}{% endif %}
+     {% if counter == 1 %}<div class="row">{% endif %}
+        <div class="col-md-3">
+          <div class="row">
+            <div class="col-md-12" style="">
+                
+                <div class="col-md-12 filterDiv + {{show.category}}">
+                             <div class="card border border-primary"> <img class="card-img-top p-2" src="{{show.poster}}" alt="Card image cap">
+                                 <div class="card-body border-primary">
+                    <h6 class="card-title" contenteditable="False">{{show.show}}</h6>
+                    <p class="card-text mb-2" contenteditable="False">{{show.band}}<br>🕙{{show.date}}<br/>📍{{show.venue}}</p>
+                                     <div class="row">
+                      <div class="col-md-6"><a href="#" class="btn btn-primary">收藏</a></div>
+                      <p class="col-md-6"><a href="{{url_for('showsdetail', slug=show.slug)}}">查看详情</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        {% if counter == 4 %}</div>{%  set counter = ( counter | default(1) ) %}{% else %}{% set counter = ( counter | default(0) ) + 1 %}{% endif %}
+              {% endfor %}
+
+             
+   
+    </div>
+        
+             </section>
+{% endblock %}

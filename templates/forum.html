@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block header %}
+        <!--头图-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Live Music Is A Lifestyle</div>
+                <div class="masthead-heading text-uppercase">说说你看过的Live</div>
+            </div>
+        </header>
+{% endblock %}
+{% block content %}
+<!-- FILTER -->
+<!-- Control buttons -->
+ <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-start">
+                    <h3 class="section-heading">留下你的现场碎片</h3>
+                    <br>
+                    <h3 class="section-subheading text-muted">分享关于音乐现场的一切......</h3>
+                </div>
+                <div id="myBtnContainer">
+                    <button class="btn btn-secondary active" onclick="filterSelection('all')">全部</button>
+                    <button class="btn btn-secondary" onclick="filterSelection('anli')">安利👍避雷👎专区</button>
+                    <button class="btn btn-secondary" onclick="filterSelection('story')">Livehouse故事会</button>
+                    <button class="btn btn-secondary" onclick="filterSelection('experience')">经验大分享</button>
+                    <button class="btn btn-secondary" onclick="filterSelection('pic')">摄影大师</button>
+                    <button class="btn btn-secondary" onclick="filterSelection('fan')">骨灰级乐迷驻扎区</button>
+                    <button class="btn btn-secondary" onclick="filterSelection('new')">livehouse小白集散地</button>
+                    <button class="btn btn-primary" onclick="filterSelection('special')">🔥对话乐队livehouse🔥</button>
+                </div>
+     </div>
+<!-- Topic lists -->
+<br>
+<br>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="ibox-content forum-container container-filter">  
+                {% for topic in topics %} 
+                <div class="forum-item filterDiv + {{topic.category}}" >
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="forum-item-title">{{topic.title}}</div>
+                            <div class="forum-sub-title">{{topic.subtitle}}</div>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="{{url_for('discuss', slug=topic.title)}}" class="btn btn-outline-primary">进来说说</a>
+                        </div>
+                    </div>
+                </div>
+                 {% endfor %} 
+            </div>
+        </div>
+    </div>
+    </div>
+     </div>
+    </section>
+{% endblock %}

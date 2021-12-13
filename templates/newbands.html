@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block header %}
+        <!--头图-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Live Music Is A Lifestyle</div>
+                <div class="masthead-heading text-uppercase">新乐队拯救歌荒</div>
+            </div>
+        </header>
+{% endblock %}
+{% block content %}
+<section class="page-section">
+    <div class="py-5">
+        <div class="container">
+            <div class="row" >
+                <div class="px-5 col-md-8 text-center mx-auto">
+                    <img src="{{ url_for('static', filename='assets/img/logo-signup.png')}}" style="width:330px">
+                    <br>
+                    <br>
+                    <h2 class="section-heading text-uppercase"> <b>新声推广计划</b></h2>
+                    <br>
+                    <h3 class="section-subheading text-muted">专为小众乐队、新乐队的提供的付费推广服务，帮助音乐人拓宽听众群体，扩大影响力。</h3>
+                    <hr>
+                    <h3 class="text-primary">&#10004;<b>首页宣传卡片</b></h3>
+                    <h5 class="mb-3">直观了解&nbsp;歌曲一键试听</h5>
+                    <br>
+                    <h3 class="text-primary">&#10004;<b>个性化详情页</b></h3>
+                    <h5 class="mb-3">代表作&nbsp;新专辑&nbsp;最近演出&nbsp;定制介绍&nbsp;直通乐队微博主页</h5>
+                    <br>
+                    <h3 class="text-primary">&#10004;<b>专属论坛话题</b></h3>
+                    <h5 class="mb-3">与独立音乐爱好者零距离交流</h5>
+                    <hr>
+                    <p>了解详细事宜或加入计划请以邮件方式发送乐队及作品介绍至：swimwithsalmon@gmail.com</p>
+                 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block header %}
+        <!--头图-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Live Music Is A Lifestyle</div>
+                <div class="masthead-heading text-uppercase">Livehouse不只有Live</div>
+            </div>
+        </header>
+{% endblock %}
+{% block content %}
+<section class="page-section">
+    <div class="py-5">
+        <div class="container">
+            <div class="row" >
+                <div class="px-5 col-md-8 text-center mx-auto">
+                    <img src="{{ url_for('static', filename='assets/img/logo-signup.png')}}" style="width:330px">
+                    <br>
+                    <br>
+                    <h2 class="section-heading text-uppercase"> <b>Livehouse活动宣传</b></h2>
+                    <br>
+                    <h3 class="section-subheading text-muted">专为Livehouse场地提供的付费推广服务，帮助宣传乐队演出以外的特色活动，拓宽消费群体。</h3>
+                    <hr>
+                    <h3 class="text-primary">&#10004;<b>直通购票平台</b></h3>
+                    <h5 class="mb-3">在网站落地页提供活动定制卡片，点击直通购票平台</h5>
+                    <br>
+                    <h3 class="text-primary">&#10004;<b>引流微信公众号</b></h3>
+                    <h5 class="mb-3">点击详情介绍，直接跳转微信公众号原始文章。</h5>
+                    <br>
+                    <h3 class="text-primary">&#10004;<b>活动卖点标签</b></h3>
+                    <h5 class="mb-3">个性化活动标签，特色卖点一目了然。</h5>
+                    <br>
+                    <h3 class="text-primary">&#10004;<b>对话潜在消费者</b></h3>
+                    <h5 class="mb-3">专属论坛话题，与独立音乐爱好者直接交流，了解需求。</h5>
+                    <hr>
+                    <p>了解详细事宜或加入计划请以邮件方式发送场馆及活动信息至：swimwithsalmon@gmail.com</p>
+                 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

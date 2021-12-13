@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block header %}
+        <!--头图-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Live Music Is A Lifestyle</div>
+                <div class="masthead-heading text-uppercase">发现新乐队</div>
+            </div>
+        </header>
+{% endblock %}
+{% block content %}
+<!-- FILTER -->
+<!-- Control buttons -->
+ <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-start">
+                    <h3 class="section-heading text-uppercase">音乐人列表</h3>
+                </div>
+                <div id="myBtnContainer">
+                    <button class="btn btn-primary active" onclick="filterSelection('all')">全部</button>
+                    <button class="btn btn-primary" onclick="filterSelection('indie')">独立</button>
+                    <button class="btn btn-primary" onclick="filterSelection('punk')">朋克</button>
+                    <button class="btn btn-primary" onclick="filterSelection('rock')">摇滚</button>
+                    <button class="btn btn-primary" onclick="filterSelection('metal')">金属</button>
+                    <hr>
+                    <button class="btn btn-secondary" onclick="filterSelection('summer')">#乐队的夏天🌊</button>
+                    <button class="btn btn-secondary" onclick="filterSelection('romance')">#湾湾浪漫乐团💗</button>
+                    <button class="btn btn-secondary" onclick="filterSelection('old')">#老牌摇滚🎸</button>
+                    
+                </div>
+     </div>
+<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
+     <br>
+     <br>
+<div class="container-filter">
+     {% for artist in artists %} 
+  <div class="filterDiv + {{artist.category}}">
+      <div class="row">
+        <div class="col-md-9 p-3 border-left border-top border-bottom border-primary">
+          <div class="row">
+            <div class="col-md-3" style=""><img class="img-fluid d-block mx-auto rounded-circle" src="{{artist.img}}" width="100" alt="Card image cap"></div>
+            <div class="col-md-6" style="">
+              <h5 contenteditable="true" class="mt-2 mb-0" >{{artist.name}}</h5>
+              <div class="col-md-6 col-sm-6 col-xs-6"> 
+							<h6 class="mb-0" contenteditable="False">{{artist.rate}}
+                                <span class="rating">
+								<label for="stars-rating-5"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-4"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-1"><i class="fa fa-star-half-alt text-primary"></i></label>
+							</span>
+                    </h6>
+						</div>
+                <p class="mb-0">{{artist.tag}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 align-items-center d-flex justify-content-center p-3 border-primary border-right border-top border-bottom border-left">
+          <div class="col-md-12 col-4 d-flex flex-column align-items-center justify-content-center order-2 order-md-2 p-0 pt-3"> <a class="btn btn-outline-primary mb-3 btn-sm" href="{{url_for('artistsdetail', slug=artist.name)}}">查看更多</a> <a class="btn btn-primary mb-3 btn-sm" href="#">收藏</a> </div>
+        </div>
+      </div>
+    </div>
+     <br>
+     {% endfor %} 
+     
+     
+     
+     </div>
+
+  
+</section>
+{% endblock %}

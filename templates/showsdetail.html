@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% block header %}
+{% endblock %}
+{% block content %}
+<!-- 演出详情 -->
+<!--Section: Block Content-->
+<section class="page-section bg-light">
+        <div class="container">
+  <div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+
+        <div class="row mx-1">
+
+          <div class="col-12 mb-0">
+            <figure class="view overlay rounded z-depth-1 main-img ">
+                <img src="{{show.poster}}"
+                  class="img-fluid z-depth-1 p-2">
+            </figure>
+          </div>
+          </div>
+        </div>
+
+    <div class="col-md-6">
+
+      <h3>{{show.show}}</h3>
+      <h5>{{show.band}}</h5>
+      <h6 class="mb-0" contenteditable="False">{{show.rate}}
+                                <span class="rating">
+								<label for="stars-rating-5"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-4"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-1"><i class="fa fa-star-half-alt text-primary"></i></label>
+							</span>
+                    </h6>
+      <br>
+        <p class="pt-0">{{show.intro}}</p>
+      <div class="table-responsive">
+        <table class="table table-sm table-borderless mb-0">
+            <h5 class="mb-0 text-muted text-uppercase small">演出信息</h5>
+          <tbody>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>日期</strong></th>
+              <td>{{show.date}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>时间</strong></th>
+              <td>{{show.time}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>地点</strong></th>
+              <td>📍{{show.venue}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>票价</strong></th>
+              <td>¥{{show.price}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        <br>
+       <h5 class="mb-0 text-muted text-uppercase small">关于音乐人</h5>
+        <p class="pt-1">{{show.artistinfo}}</p>
+        <hr>
+        
+      <a href="{{show.url}}"><button type="button" class="btn btn-primary btn-md mr-1 mb-2">马上购票</button></a>
+      <button type="button" class="btn btn-outline-primary btn-md mr-1 mb-2">加入收藏</button>
+    </div>
+    </div>
+        </div>
+    <hr>
+
+    
+
+<!-- 讨论区 -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+            <div class="container">
+                <div class="text-start">
+                    <h3 class="section-heading">交流广场</h3>
+                    <br>
+                    <h3 class="section-subheading text-muted">在这里，你可以#找同伴 #出票 #找组织 #为演出打call....</h3>
+                </div>
+                <div id="myBtnContainer">
+                    <button class="btn btn-outline-secondary active" onclick="filterSelection('all')">全部</button>
+                    <button class="btn btn-outline-secondary" onclick="filterSelection('friend')">#一起看</button>
+                    <button class="btn btn-outline-secondary" onclick="filterSelection('ticket')">#出票</button>
+                    <button class="btn btn-outline-secondary" onclick="filterSelection('group')">#求加群</button>
+                    <button class="btn btn-outline-secondary" onclick="filterSelection('others')">#其他</button>
+                </div>
+     </div>
+<section class="content-item">
+    <div class="container">   
+        <div class="row">
+            <div class="col-sm-8">   
+                <form>
+                    <h3 class="pull-left">我也要评论</h3>
+                    <div class="media-body">
+                    <button type="submit" class="btn btn-primary pull-right">发送</button>
+                    <fieldset>
+                        <div class="row">
+                            <div class="form-group col-sm-9 col-lg-10">
+                                <textarea class="form-control" id="message" placeholder="我想说..." required=""></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    </div>
+                </form>
+                
+<!-- 评论展示 -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="be-comment-block container-filter">
+	<div class="be-comment filterDiv ticket">
+		<div class="be-img-comment">	
+			<a href="blog-detail-2.html">
+				<img src="{{ url_for('static', filename='assets/img/profile/default.jpeg')}}" alt="" class="be-ava-comment">
+			</a>
+		</div>
+		<div class="be-comment-content">
+			
+				<span class="be-comment-name">
+					<a href="blog-detail-2.html">Ravi Sah</a>
+					</span>
+				<span class="be-comment-time">
+					<i class="fa fa-clock-o"></i>
+					11/28/2021 10:14am
+				</span>
+
+			<p class="be-comment-text">
+				#出票 Pellentesque gravida tristique ultrices. 
+				Sed blandit varius mauris, vel volutpat urna hendrerit id. 
+				Curabitur rutrum dolor gravida turpis tristique efficitur.
+			</p>
+		</div>
+	</div>
+	<div class="be-comment filterDiv friend">
+		<div class="be-img-comment">	
+			<a href="blog-detail-2.html">
+				<img src="{{ url_for('static', filename='assets/img/profile/default.jpeg')}}" alt="" class="be-ava-comment">
+			</a>
+		</div>
+		<div class="be-comment-content">
+			<span class="be-comment-name">
+				<a href="blog-detail-2.html">VanillaSky</a>
+			</span>
+			<span class="be-comment-time">
+				<i class="fa fa-clock-o"></i>
+				11/28/2021 10:14am
+			</span>
+			<p class="be-comment-text">
+				#一起看 Nunc ornare sed dolor sed mattis. In scelerisque dui a arcu mattis, at maximus eros commodo. Cras magna nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant. Proin ut ornare lectus, vel eleifend est. Fusce hendrerit dui in turpis tristique blandit.
+			</p>
+		</div>
+	</div>
+	<div class="be-comment filterDiv group">
+		<div class="be-img-comment">	
+			<a href="blog-detail-2.html">
+				<img src="{{ url_for('static', filename='assets/img/profile/default.jpeg')}}" alt="" class="be-ava-comment">
+			</a>
+		</div>
+		<div class="be-comment-content">
+			<span class="be-comment-name">
+				<a href="blog-detail-2.html">John Doe</a>
+			</span>
+			<span class="be-comment-time">
+				<i class="fa fa-clock-o"></i>
+				11/28/2021 10:14am
+			</span>
+			<p class="be-comment-text">
+				#求加群 Cras magna nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant
+			</p>
+		</div>
+	</div>
+                
+                
+                
+             
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+    </section>
+</section>
+
+
+{% endblock %}
